@@ -4,4 +4,5 @@ export type Drag = {
     price: number,
     count: number,
     storeId: string,
+    description: string
 }
