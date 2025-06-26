@@ -1,5 +1,5 @@
 import React from "react";
-import {PrimaryButton} from "../form_controls/PrimaryButton.tsx";
+import {PrimaryButton} from "../../../../../components/PrimaryButton.tsx";
 
 type CardItemProps = {
     title: string;

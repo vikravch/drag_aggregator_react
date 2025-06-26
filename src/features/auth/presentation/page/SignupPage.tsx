@@ -1,7 +1,7 @@
 import React from "react";
 import {Label} from "../components/Label.tsx";
 import {InputField} from "../components/InputField.tsx";
-import {PrimaryButton} from "../components/PrimaryButton.tsx";
+import {PrimaryButton} from "../../../../components/PrimaryButton.tsx";
 
 export const SignupPage: React.FC = () => {
     return (
@@ -27,7 +27,7 @@ export const SignupPage: React.FC = () => {
                 </div>
 
                 <div className="pt-4">
-                    <PrimaryButton text="Create" type="submit" />
+                    <PrimaryButton text="Create" type="submit" className={"w-full"} />
                 </div>
             </form>
         </div>

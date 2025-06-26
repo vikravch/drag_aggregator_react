@@ -1,7 +1,7 @@
 import React from "react";
 import {Label} from "../components/Label.tsx";
 import {InputField} from "../components/InputField.tsx";
-import {PrimaryButton} from "../components/PrimaryButton.tsx";
+import {PrimaryButton} from "../../../../components/PrimaryButton.tsx";
 
 export const LoginPage: React.FC = () => {
     return (
@@ -22,7 +22,7 @@ export const LoginPage: React.FC = () => {
                 </div>
 
                 <div className="pt-4">
-                    <PrimaryButton text="Login" type="submit" />
+                    <PrimaryButton text="Login" type="submit" className={"w-full"} />
                 </div>
             </form>
         </div>
