@@ -27,7 +27,11 @@ export const searchByName = createAsyncThunk<Drag[], string>(
             const res = await repository.searchByName(query);
             return res;
         } catch (error) {
-            return thunkAPI.rejectWithValue(error.message || 'Unknown error');
+            let message = 'Unknown error';
+            if (error instanceof Error) {
+                message = error.message;
+            }
+            return thunkAPI.rejectWithValue(message);
         }
     }
 );
