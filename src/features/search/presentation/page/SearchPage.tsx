@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {BreadcrumpSection} from "../components/breadcrump/BreadcrumpSection.tsx";
 import {TitleText} from "../components/TitleText.tsx";
 import {SearchInput} from "../components/form_controls/SearchInput.tsx";
@@ -8,8 +8,11 @@ import type {Drag} from "../../domain/Drag.ts";
 import {useDispatch, useSelector} from "react-redux";
 import type {AppDispatch, RootState} from "../../../../redux/store.ts";
 import {searchByName} from "../redux/searchSlice.ts";
+import Repository from "../../../auth/domain/AuthRepository.ts";
 
 export const SearchPage: React.FC = ()=>{
+    const [userEmail, setUserEmail] = useState("");
+
     const dragList =
         useSelector<RootState,Drag[]>(state =>
             state.drag.list)
@@ -17,11 +20,23 @@ export const SearchPage: React.FC = ()=>{
         useDispatch<AppDispatch>();
 
     useEffect(() => {
+        getUserEmail();
         dispatch(searchByName(''))
     }, []);
+
+    const getUserEmail = async () => {
+        try{
+            const email = await Repository.getIsAuthUser();
+            setUserEmail(email);
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
     return (
         <main className="max-w-4xl mx-auto py-10 px-4">
-            <BreadcrumpSection/>
+
+            <BreadcrumpSection userEmail={userEmail}/>
 
             <section>
                 <div>
@@ -50,6 +65,8 @@ export const SearchPage: React.FC = ()=>{
                     ))
                 }
             </section>
+
+
         </main>
     )
 }

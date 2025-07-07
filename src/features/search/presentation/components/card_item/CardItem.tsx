@@ -21,8 +21,8 @@ export const CardItem: React.FC<CardItemProps> = (
                     <span>{price}</span>
                     <span className="text-2xl text-blue-400 mt-1 ml-1">$</span>
                 </div>
-                <p className="text-blue-400 text-lg mb-2">Per Month</p>
-                <PrimaryButton text="Try for free"/>
+                <p className="text-blue-400 text-lg mb-2">Per Item</p>
+                <PrimaryButton text="Add to cart"/>
             </div>
         </div>
     );
